@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: spring-boot-test
+            client-secret: ...
+            client-name: keycloak - Spring Boot Test
+            authorizationGrantType: authorization_code
+            redirectUriTemplate: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, user
+        provider:
+          keycloak:
+            authorization-uri: https://my-keycloak/auth/realms/sprint-boot/protocol/openid-connect/auth
+            token-uri: https://my-keycloak/auth/realms/sprint-boot/protocol/openid-connect/token
+            user-info-uri: https://my-keycloak/auth/realms/sprint-boot/protocol/openid-connect/userinfo
+            jwk-set-uri: https://my-keycloak/auth/realms/sprint-boot/protocol/openid-connect/certs
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+    com.github.cthiebault.keycloak: DEBUG
