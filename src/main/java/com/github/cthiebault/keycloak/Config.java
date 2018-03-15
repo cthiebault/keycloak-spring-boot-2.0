@@ -14,6 +14,7 @@ public class Config {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
+  // https://docs.spring.io/spring-security/site/docs/5.0.3.RELEASE/reference/htmlsingle/#oauth2login-advanced-map-authorities
   // used to log stuff
   @Bean
   public GrantedAuthoritiesMapper userAuthoritiesMapper() {
